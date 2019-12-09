@@ -24,7 +24,8 @@ class TaskController extends Controller
      */
     public function index()
     {
-        //
+        //回傳視圖，可看到輸入任務的表單
+        return view('tasks.index');
     }
 
     /**
