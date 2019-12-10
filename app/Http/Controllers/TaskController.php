@@ -29,7 +29,9 @@ class TaskController extends Controller
 
         //顯示已有的任務
         //由 DB 擷取使用者所有任務
-        $tasks = Task::where('user_id', $request->user()->id)->get();
+        //$tasks = Task::where('user_id', $request->user()->id)->get();
+        /*測試 認證->使用者->任務*/
+        $tasks= auth()->user()->tasks;
 
         return view('tasks.index', [
             'tasks' => $tasks,
