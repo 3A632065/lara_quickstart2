@@ -125,12 +125,13 @@ class TaskController extends Controller
     }
 
     /**
-     * Remove the specified resource from storage.
+     * 移除給定的任務。
      *
-     * @param  \App\Task  $task
-     * @return \Illuminate\Http\Response
+     * @param  Request  $request
+     * @param  Task  $task
+     * @return Response
      */
-    public function destroy(Task $task)
+    public function destroy(Request $request, Task $task)
     {
         //
     }
