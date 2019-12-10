@@ -23,14 +23,14 @@ class TaskController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
         //回傳視圖，可看到輸入任務的表單
         //return view('tasks.index');
 
         //顯示已有的任務
         //由 DB 擷取使用者所有任務
-        //$tasks = Task::where('user_id', $request->user()->id)->get();
+        $tasks = Task::where('user_id', $request->user()->id)->get();
 
         /*測試 認證->使用者->任務*/                  // auth()->user()代表登入者的User model
         //$tasks= auth()->user()->tasks;
@@ -42,7 +42,7 @@ class TaskController extends Controller
         //$tasks=Auth::user()->tasks;
 
         /*測試 認證(另一種)->使用者->任務->get*/
-        $tasks=Auth::user()->tasks()->get();
+        //$tasks=Auth::user()->tasks()->get();
 
         /*取得使用者相關資料或方法
         auth()->user()->id          //取的使用者的ID
