@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Task;
+use Auth;
 use Illuminate\Http\Request;
 
 class TaskController extends Controller
@@ -31,11 +32,14 @@ class TaskController extends Controller
         //由 DB 擷取使用者所有任務
         //$tasks = Task::where('user_id', $request->user()->id)->get();
 
-        /*測試 認證->使用者->任務*/
+        /*測試 認證->使用者->任務*/                  // auth()->user()代表登入者的User model
         //$tasks= auth()->user()->tasks;
 
         /*測試 認證->使用者->任務->get*/
-        $tasks= auth()->user()->tasks()->get();
+        //$tasks= auth()->user()->tasks()->get();
+
+        /*測試 認證(另一種)->使用者->任務*/           // auth()->user()等同於Auth::user()
+        $tasks=Auth::user()->tasks;
 
         return view('tasks.index', [
             'tasks' => $tasks,
