@@ -53,7 +53,12 @@ class TaskController extends Controller
             'name' => 'required|max:255',
         ]);
 
-        // Create The Task...
+        //建立任務
+        $request->user()->tasks()->create([
+            'name' => $request->name,
+        ]);
+
+        return redirect('/tasks');
     }
 
     /**
