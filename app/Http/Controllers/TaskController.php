@@ -44,6 +44,8 @@ class TaskController extends Controller
         /*測試 認證(另一種)->使用者->任務->get*/
         //$tasks=Auth::user()->tasks()->get();
 
+        //$tasks=auth()->user()->tasks()->paginate(2); //登入者任務分頁顯示，每頁2筆
+
         /*取得使用者相關資料或方法
         auth()->user()->id          //取的使用者的ID
         auth()->user()->name        //取得使用者的姓名
